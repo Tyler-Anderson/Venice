@@ -7,6 +7,11 @@
                  (2 font-lock-function-name-face))))))
 
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+
+(add-hook 'nrepl-interaction-mode-hook 'my-nrepl-mode-setup)
+(defun my-nrepl-mode-setup ()
+  (require 'nrepl-ritz))
+
 (defun nrepl-popup-tip-symbol-at-point ()
   (interactive)
   (popup-tip (ac-nrepl-documentation (symbol-at-point))
@@ -36,6 +41,6 @@
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'nrepl-mode))
-(nrepl-enable-on-existing-clojure-buffers)
-(add-hook 'nrepl-connected-hook 'nrepl-enable-on-existing-clojure-buffers)
 
+;; (cider-enable-on-existing-clojure-buffers)
+(add-hook 'nrepl-connected-hook 'cider-enable-on-existing-clojure-buffers)

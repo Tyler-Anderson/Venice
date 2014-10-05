@@ -2,26 +2,17 @@
   "mm" 'minimap-toggle
   "M" 'magit-status
   "/"  'smex
-  "c"  'evilnc-comment-or-uncomment-lines
+  "C"  'evilnc-comment-or-uncomment-lines
   "b"  'switch-to-buffer
   "nn" 'sr-speedbar-toggle
 
-  "nr" 'nrepl-jack-in
-  "ns" 'nrepl-set-ns
-  ","  'nrepl-eval-expression-at-point
-  "sf" 'nrepl-load-current-buffer
+  "ji" 'cider-jack-in
+  "ns" 'cider-repl-set-ns
+  ","  'cider-eval-expression-at-point
+  "sf" 'cider-load-current-buffer
   "rn" 'nrepl-ritz-jack-in
-  "N"  'nrepl-switch-to-repl-buffer
+  "N"  'cider-switch-to-repl-buffer
 
-  "pe" 'paredit-mode
-  "S"  'paredit-splice-sexp
-  "W"  'paredit-wrap-sexp
-  "w(" 'paredit-wrap-sexp
-  "w[" 'paredit-wrap-square
-  "w{" 'paredit-wrap-curly
-  ">"  'paredit-forward-slurp-sexp
-  "<"  'paredit-backward-barf-sexp
-  "J"  'paredit-join-sexps
 
   "pa" 'projectile-ack
   "pf" 'projectile-find-file
@@ -31,6 +22,17 @@
   "pr" 'projectile-replace
   "pi" 'projectile-invalidate-cache
   "pt" 'projectile-regenerate-tags)
+
+(evil-leader/set-key-for-mode 'paredit-mode
+  "pe" 'paredit-mode
+  "S"  'paredit-splice-sexp
+  "W"  'paredit-wrap-sexp
+  "w(" 'paredit-wrap-sexp
+  "w[" 'paredit-wrap-square
+  "w{" 'paredit-wrap-curly
+  ">"  'paredit-forward-slurp-sexp
+  "<"  'paredit-backward-barf-sexp
+  "J"  'paredit-join-sexps)
 
 (define-key evil-normal-state-map (kbd "C-j") 'windmove-down)
 (define-key evil-normal-state-map (kbd "C-k") 'windmove-up)
